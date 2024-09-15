@@ -5,4 +5,4 @@ Here is the mockup of the task tracker:
 
 ### Hint
 
-Store your tasks in an array of objects, where each object represents a task with properties like description and status (completed or not). Whenever a new task is added, updated, deleted, or marked as complete/uncomplete, update the tasks array. Write a function renderTasks which will remove all tasks from the DOM and re-render them based on the updated tasks array.
+Store your tasks in an array of objects, where each object represents a task with properties like description and status (completed or not). Whenever a new task is added, updated, deleted, or marked as complete/uncomplete, update the tasks array. Write a function renderTasks which will remove all tasks from the DOM and re-render them based on the updated tasks array

@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const TaskList = () => {
-  const [addList, setAddList] = useState(null)
+const TaskForm = () => {
+  const [addForm, setAddForm] = useState("")
 
   const handleInputChange = (event) => {
-    setAddList(event.target.value);
+    setAddForm(event.target.value);
   }
 
   return (
@@ -14,7 +14,7 @@ const TaskList = () => {
           Enter task:
           <input
             type="text"
-            value={addList}
+            value={addForm}
             onChange={handleInputChange}
             placeholder="Writing the task"
           />
@@ -25,4 +25,4 @@ const TaskList = () => {
   )
 }
 
-export default TaskList;
+export default TaskForm;

@@ -14,7 +14,7 @@ function TaskList() {
 
   // Función para alternar: completado o no
   const handleToggleTask = (index) => {
-    const updatedTask = displayList.map((task, i) => {
+    const updatedTask = displayLists.map((task, i) => {
       return i === index ? { ...task, completed: !task.completed } : task
     })
     setDisplayLists(updatedTask);

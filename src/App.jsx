@@ -6,8 +6,10 @@ function App() {
 
   return (
     <>
-      <h1>Task Tracker</h1>
-      <TaskList />
+      <div className='container-main'>
+        <h1 className='main-title'>Task Tracker</h1>
+        <TaskList />
+      </div>
     </>
   )
 }

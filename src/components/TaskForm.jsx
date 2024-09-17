@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../styles/TaskForm.css'
 
 
 function TaskForm({ onAddTask }) {
@@ -18,8 +19,10 @@ function TaskForm({ onAddTask }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form
+        className="container-form"
+        onSubmit={handleSubmit}>
+        <label className="form-label">
           Enter task:
           <input
             type="text"

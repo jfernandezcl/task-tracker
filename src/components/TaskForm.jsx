@@ -23,8 +23,8 @@ function TaskForm({ onAddTask }) {
         className="container-form"
         onSubmit={handleSubmit}>
         <label className="form-label">
-          Enter task:
           <input
+            className="form-input"
             type="text"
             value={addForm}
             onChange={handleInputChange}

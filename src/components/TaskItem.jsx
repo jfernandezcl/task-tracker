@@ -2,14 +2,15 @@ function TaskItem({ task, onToggle }) {
 
 
   return (
-    <li>
+    <li className="container-task">
       <input
         type="checkbox"
         checked={task.completed}
         onChange={onToggle}
       />
       <span
-        style={{ textDecoration: task.completed ? "line-thoriugh" : "none" }}
+        className="task-marking"
+        style={{ textDecoration: task.completed ? "line-through" : "none" }}
         onClick={onToggle}
       >
         {task.text}

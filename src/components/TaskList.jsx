@@ -15,7 +15,7 @@ function TaskList() {
   // Función para alternar: completado o no
   const handleToggleTask = (index) => {
     const updatedTask = displayList.map((task, i) => {
-      i === index ? { ...task, completed: !task.completed } : task
+      return i === index ? { ...task, completed: !task.completed } : task
     })
     setDisplayList(updatedTask);
   }
@@ -26,7 +26,7 @@ function TaskList() {
       <ul>
         {displayList.map((task, index) => (
           <TaskItem
-            key={task}
+            key={task.id || index}
             task={task}
             onToggle={() => handleToggleTask(index)}
           />

@@ -4,11 +4,11 @@ import TaskItem from './TaskItem.jsx';
 
 
 function TaskList() {
-  const [displayList, setDisplayList] = useState([]);
+  const [displayLists, setDisplayLists] = useState([]);
 
   // Función para agregar una tarea a la lista
   const addTask = (newTask) => {
-    setDisplayList([...displayList, newTask])
+    setDisplayLists([...displayLists, newTask])
     console.log(newTask)
   }
 
@@ -17,18 +17,24 @@ function TaskList() {
     const updatedTask = displayList.map((task, i) => {
       return i === index ? { ...task, completed: !task.completed } : task
     })
-    setDisplayList(updatedTask);
+    setDisplayLists(updatedTask);
+  }
+
+  const handleDeleteTask = (index) => {
+    const taskslist = displayLists.filter((_, i) => i !== index)
+    setDisplayLists(taskslist)
   }
 
   return (
     <>
       <TaskForm onAddTask={addTask} />
       <ul>
-        {displayList.map((task, index) => (
+        {displayLists.map((task, index) => (
           <TaskItem
             key={task.id || index}
             task={task}
             onToggle={() => handleToggleTask(index)}
+            onToggleDelete={() => handleDeleteTask(index)}
           />
         ))}
       </ul>

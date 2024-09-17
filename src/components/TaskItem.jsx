@@ -1,4 +1,4 @@
-function TaskItem({ task, onToggle }) {
+function TaskItem({ task, onToggle, onToggleDelete }) {
 
 
   return (
@@ -7,6 +7,7 @@ function TaskItem({ task, onToggle }) {
         type="checkbox"
         checked={task.completed}
         onChange={onToggle}
+
       />
       <span
         className="task-marking"
@@ -15,6 +16,7 @@ function TaskItem({ task, onToggle }) {
       >
         {task.text}
       </span>
+      <button onClick={onToggleDelete}>Delete</button>
     </li>
   )
 }

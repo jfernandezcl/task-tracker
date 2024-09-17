@@ -16,7 +16,9 @@ function TaskItem({ task, onToggle, onToggleDelete }) {
       >
         {task.text}
       </span>
-      <button onClick={onToggleDelete}>Delete</button>
+      <button
+        className="button-delete"
+        onClick={onToggleDelete}>Delete</button>
     </li>
   )
 }

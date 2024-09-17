@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../styles/TaskForm.css'
+import icon from '../images/iconenter.png'
 
 
 function TaskForm({ onAddTask }) {
@@ -31,7 +32,12 @@ function TaskForm({ onAddTask }) {
             placeholder="Writing the task"
           />
         </label>
-        <button type="submit">Save</button>
+        <button
+          className="button-save"
+          type="submit"
+        >
+          <img src={icon} alt="icono enter" />
+        </button>
       </form>
 
     </>

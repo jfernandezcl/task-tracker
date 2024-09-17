@@ -1,8 +1,7 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
 
 
-const TaskForm = ({ onAddTask }) => {
+function TaskForm({ onAddTask }) {
   const [addForm, setAddForm] = useState("")
 
   const handleInputChange = (event) => {
@@ -12,7 +11,7 @@ const TaskForm = ({ onAddTask }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (addForm.trim() !== '') {
-      onAddTask(addForm)
+      onAddTask({ text: addForm, completed: false })
       setAddForm("");
     }
   }
@@ -29,15 +28,11 @@ const TaskForm = ({ onAddTask }) => {
             placeholder="Writing the task"
           />
         </label>
-        <button type="submit">Enter</button>
+        <button type="submit">Save</button>
       </form>
+
     </>
   )
 }
-
-// Validación de las props 
-TaskForm.propTypes = {
-  onAddTask: PropTypes.func.isRequired, // Se espera una función y es requerida
-};
 
 export default TaskForm;

@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import TaskForm from './TaskForm.jsx'
+import TaskItem from './TaskItem.jsx';
 
-const TaskList = () => {
+
+function TaskList() {
   const [displayList, setDisplayList] = useState([]);
 
+  // Función para agregar una tarea a la lista
   const addTask = (newTask) => {
     setDisplayList([...displayList, newTask])
     console.log(newTask)
+  }
+
+  // Función para alternar: completado o no
+  const handleToggleTask = (index) => {
+    const updatedTask = displayList.map((task, i) => {
+      i === index ? { ...task, completed: !task.completed } : task
+    })
+    setDisplayList(updatedTask);
   }
 
   return (
@@ -14,7 +25,11 @@ const TaskList = () => {
       <TaskForm onAddTask={addTask} />
       <ul>
         {displayList.map((task, index) => (
-          <li key={index}>{task}</li>
+          <TaskItem
+            key={task}
+            task={task}
+            onToggle={() => handleToggleTask(index)}
+          />
         ))}
       </ul>
     </>

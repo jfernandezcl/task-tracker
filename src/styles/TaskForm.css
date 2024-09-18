@@ -15,10 +15,14 @@
   padding-left: 12px;
 }
 
-.button-save img{
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  list-style: none;
+.button-save {
+  background-color: black;
+  border-radius: 12px;
   border: none;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.button-save img{
+ width: 24px;
 }

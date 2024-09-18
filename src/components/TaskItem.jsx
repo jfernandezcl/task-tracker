@@ -1,5 +1,6 @@
-function TaskItem({ task, onToggle, onToggleDelete }) {
+import '../styles/TaskItem.css'
 
+function TaskItem({ task, onToggle, onToggleDelete }) {
 
   return (
     <li className="container-task">

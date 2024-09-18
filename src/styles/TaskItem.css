@@ -1,0 +1,8 @@
+.container-task {
+  list-style: none;
+  color: black;
+  font-weight: 620;
+  display: flex;
+  align-items: center;
+}
+

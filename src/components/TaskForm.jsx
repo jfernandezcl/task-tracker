@@ -21,9 +21,11 @@ function TaskForm({ onAddTask }) {
   return (
     <>
       <form
-        className="container-form"
         onSubmit={handleSubmit}>
         <label className="form-label">
+          Task Tracker
+        </label>
+        <div>
           <input
             className="form-input"
             type="text"
@@ -31,13 +33,14 @@ function TaskForm({ onAddTask }) {
             onChange={handleInputChange}
             placeholder="Writing the task"
           />
-        </label>
-        <button
-          className="button-save"
-          type="submit"
-        >
-          <img src={icon} alt="icono enter" />
-        </button>
+          <button
+            className="button-save"
+            type="submit"
+          >
+            <img src={icon} alt="icono enter" />
+          </button>
+
+        </div>
       </form>
 
     </>

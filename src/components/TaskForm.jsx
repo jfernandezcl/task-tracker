@@ -37,7 +37,9 @@ function TaskForm({ onAddTask }) {
             className="button-save"
             type="submit"
           >
-            <img src={icon} alt="icono enter" />
+            <img
+              className="img-save"
+              src={icon} alt="icono enter" />
           </button>
 
         </div>

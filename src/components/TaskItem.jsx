@@ -22,7 +22,9 @@ function TaskItem({ task, onToggle, onToggleDelete }) {
         className="button-delete"
         onClick={onToggleDelete}
       >
-        <img src={iconDelete} alt="icon delete" />
+        <img
+          className='img-delete'
+          src={iconDelete} alt="icon delete" />
       </button>
     </li>
   )

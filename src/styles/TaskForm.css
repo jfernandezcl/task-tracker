@@ -9,6 +9,8 @@
   text-align: center;
 }
 
-.button-save {
-  
+.button-save img{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }

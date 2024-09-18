@@ -1,4 +1,5 @@
 import '../styles/TaskItem.css'
+import iconDelete from '../images/iconDelete.svg'
 
 function TaskItem({ task, onToggle, onToggleDelete }) {
 
@@ -19,7 +20,10 @@ function TaskItem({ task, onToggle, onToggleDelete }) {
       </span>
       <button
         className="button-delete"
-        onClick={onToggleDelete}>Delete</button>
+        onClick={onToggleDelete}
+      >
+        <img src={iconDelete} alt="icon delete" />
+      </button>
     </li>
   )
 }

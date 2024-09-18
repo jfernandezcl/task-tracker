@@ -1,6 +1,6 @@
 import { useState } from "react";
 import '../styles/TaskForm.css'
-import icon from '../images/iconenter.png'
+import icon from '../images/iconEnter.svg'
 
 
 function TaskForm({ onAddTask }) {

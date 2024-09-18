@@ -6,3 +6,16 @@
   align-items: center;
 }
 
+.button-delete {
+  width: 30px;
+  height: 35px;
+  list-style: none;
+  background-color: red;
+  
+}
+
+.button-delete img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

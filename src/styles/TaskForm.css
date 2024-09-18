@@ -1,6 +1,6 @@
 .form-input {
   border: none;
-  color: #777879;
+  color: #303030;
   background-color: white;
   border: 2px solid black;
   border-radius: 12px;
@@ -13,4 +13,6 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  list-style: none;
+  border: none;
 }

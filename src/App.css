@@ -3,12 +3,14 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: white;
 }
 
 
 .container-main {
-  background-color: rgb(170, 250, 138);
   padding: 10px 100px;
+  border: 2px solid black;
+  border-radius: 16px;
 }
 
 .main-title {

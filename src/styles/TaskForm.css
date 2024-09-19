@@ -1,6 +1,9 @@
 .form-label {
   display: flex;
+  align-items: center;
+  justify-content: left;
   color: black;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 12px;
 }

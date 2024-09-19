@@ -7,7 +7,14 @@
   font-weight: 600;
   margin-bottom: 12px;
 }
-
+/*Contenedor para el input y el boton*/
+.container-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 12px;
+}
 .form-input {
   border: none;
   color: #303030;

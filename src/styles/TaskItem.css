@@ -6,7 +6,7 @@
   flex-wrap: nowrap;
   word-break: break-word;
   max-width: 420px;
-  padding: 6px;
+  margin-top: 12px;
   color: black;
   font-weight: 500;
   border-bottom: 2px solid rgba(83, 82, 82, 0.4);

@@ -25,7 +25,7 @@ function TaskForm({ onAddTask }) {
         <label className="form-label">
           Task Tracker
         </label>
-        <div>
+        <div className="container-input">
           <input
             className="form-input"
             type="text"
@@ -41,7 +41,6 @@ function TaskForm({ onAddTask }) {
               className="img-save"
               src={icon} alt="icono enter" />
           </button>
-
         </div>
       </form>
 

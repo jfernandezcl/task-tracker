@@ -28,7 +28,7 @@ function TaskList() {
   return (
     <>
       <TaskForm onAddTask={addTask} />
-      <ul>
+      <ul style={{ padding: "0" }}>
         {displayLists.map((task, index) => (
           <TaskItem
             key={task.id || index}

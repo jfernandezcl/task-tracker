@@ -2,5 +2,8 @@
   "dependencies": {
     "express": "4.21.0",
     "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
   }
 }

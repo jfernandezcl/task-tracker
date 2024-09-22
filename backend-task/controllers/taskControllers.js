@@ -8,7 +8,6 @@ export class TaskControllers {
       const tasks = await this.taskModel.getAll()
       res.json(tasks)
     } catch (error) {
-      console.log('Error fetching task:', error)
       res.status(500).json({ message: 'Internal server error' })
     }
   }

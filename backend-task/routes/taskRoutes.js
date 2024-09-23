@@ -8,5 +8,5 @@ export const createTaskRouter = ({ taskModel }) => {
 
   taskRouter.get('/', newTaskController.getAll)
   taskRouter.post('/', newTaskController.create)
-  taskRouter.delete('/', newTaskController.delete)
+  taskRouter.delete('/:id', newTaskController.delete)
 }

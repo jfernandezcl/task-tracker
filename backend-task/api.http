@@ -8,3 +8,6 @@ Content-Type: application/json
 {
   "task": "Esta es una prueba de crear una tarea"
 }
+
+### Eliminar una tarea específica
+DELETE http://localhost:1234/id

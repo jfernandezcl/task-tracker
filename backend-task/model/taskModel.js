@@ -37,5 +37,7 @@ export class TaskModel {
     return newTask[0]
   }
 
-  static async delete({ id }) { }
+  static async delete({ id }) {
+    await connection.query('SELLECT FROM task WHERE id = UUID_TO_BIN(?)', [id])
+  }
 }

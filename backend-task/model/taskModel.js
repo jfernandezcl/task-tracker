@@ -15,7 +15,11 @@ const connection = await mysql.createConnection(connectionString)
 
 // Métodos de la clase
 export class TaskModel {
-  static async getAll() { }
+  // obtener todas las tareas
+  static async getAll() {
+    const [tasks] = await connection.query('SELECT BIN_TO_UUID(id) AS id, task FROM task')
+    return tasks
+  }
 
   static async created({ input }) { }
 

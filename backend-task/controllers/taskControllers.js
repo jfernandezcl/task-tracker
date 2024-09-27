@@ -25,7 +25,8 @@ export class TaskControllers {
   delete = async (req, res) => {
     try {
       const { id } = req.params
-      const result = await this.taskModel.delete({ id })
+      const cleanedId = id.trim()
+      const result = await this.taskModel.delete({ id: cleanedId })
       res.status(200).json(result)
     } catch (error) {
       console.error('Error delete task:', error)

@@ -38,6 +38,8 @@ export class TaskModel {
   }
 
   static async delete({ id }) {
-    await connection.query('SELECT FROM task WHERE id = UUID_TO_BIN(?)', [id])
+    const [result] = await connection.query('DELETE FROM task WHERE id = UUID_TO_BIN(?)', [id])
+    return result
+
   }
 }

@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise'
 
-// PAra hacer la conexión
+// PAra hacer la conexión DBngin
 const SERVER_CONFIG = {
   host: 'localhost',
   user: 'root',

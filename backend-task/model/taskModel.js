@@ -12,6 +12,7 @@ const SERVER_CONFIG = {
 const connectionString = process.env.DATABASE_URL ?? SERVER_CONFIG
 
 const connection = await mysql.createConnection(connectionString)
+console.log(connection)
 
 // Métodos de la clase
 export class TaskModel {
@@ -40,6 +41,5 @@ export class TaskModel {
   static async delete({ id }) {
     const [result] = await connection.query('DELETE FROM task WHERE id = UUID_TO_BIN(?)', [id])
     return result
-
   }
 }

@@ -27,7 +27,12 @@ export class TaskControllers {
       const { id } = req.params
       const cleanedId = id.trim()
       const result = await this.taskModel.delete({ id: cleanedId })
-      res.status(200).json(result)
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ message: 'Task not found' })
+      }
+
+      res.status(200).json({ message: 'Task deleted successfully' })
     } catch (error) {
       console.error('Error delete task:', error)
       res.status(500).json({ message: 'Error when deleting' })

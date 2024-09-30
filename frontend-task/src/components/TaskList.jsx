@@ -34,9 +34,20 @@ function TaskList() {
     setDisplayLists(updatedTask);
   }
 
-  const handleDeleteTask = (index) => {
-    const taskslist = displayLists.filter((_, i) => i !== index)
-    setDisplayLists(taskslist)
+  // Función para eliminar una tarea
+  const handleDeleteTask = async (index, taskId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+        method: 'DELETE',
+      })
+
+      if (response.ok) {
+        const taskslist = displayLists.filter((_, i) => i !== index)
+        setDisplayLists(taskslist) // Actualizar la lista después de eliminar
+      }
+    } catch (error) {
+      console.error('Error when deleting the task:', error)
+    }
   }
 
   return (
@@ -48,7 +59,7 @@ function TaskList() {
             key={task.id || index}
             task={task}
             onToggle={() => handleToggleTask(index)}
-            onToggleDelete={() => handleDeleteTask(index)}
+            onToggleDelete={() => handleDeleteTask(index, task.id)}
           />
         ))}
       </ul>

@@ -18,28 +18,26 @@ console.log(connection)
 export class TaskModel {
   // obtener todas las tareas
   static async getAll() {
-    const [tasks] = await connection.query('SELECT BIN_TO_UUID(id) AS id, task FROM task')
+    const [tasks] = await connection.query('SELECT id, task FROM task')
     return tasks
   }
   // crear una tarea
   static async create({ input }) {
     const { task } = input
-    const [uuidResult] = await connection.query('SELECT UUID() AS uuid')
-    const [{ uuid }] = uuidResult
-
-    await connection.query(
-      'INSERT INTO task (id, task) VALUES (UUID_TO_BIN(?), ?)',
-      [uuid, task]
+    const [result] = await connection.query(
+      'INSERT INTO task (task) VALUES (?)',
+      [task]
     )
+
     const [newTask] = await connection.query(
-      'SELECT BIN_TO_UUID(id) AS id, task FROM task WHERE id = UUID_TO_BIN(?);',
-      [uuid]
+      'SELECT id, task FROM task WHERE id = ?;',
+      [result.insertId]
     )
     return newTask[0]
   }
 
   static async delete({ id }) {
-    const [result] = await connection.query('DELETE FROM task WHERE id = UUID_TO_BIN(?)', [id])
+    const [result] = await connection.query('DELETE FROM task WHERE id = ?', [id])
     return result
   }
 }

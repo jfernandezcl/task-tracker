@@ -26,6 +26,7 @@ export class TaskControllers {
     try {
       const { id } = req.params
       const cleanedId = id.trim()
+
       const result = await this.taskModel.delete({ id: cleanedId })
 
       if (result.affectedRows === 0) {

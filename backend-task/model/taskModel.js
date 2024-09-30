@@ -12,13 +12,14 @@ const SERVER_CONFIG = {
 const connectionString = process.env.DATABASE_URL ?? SERVER_CONFIG
 
 const connection = await mysql.createConnection(connectionString)
-console.log(connection)
+
 
 // Métodos de la clase
 export class TaskModel {
   // obtener todas las tareas
   static async getAll() {
     const [tasks] = await connection.query('SELECT id, task FROM task')
+    console.log(tasks)
     return tasks
   }
   // crear una tarea

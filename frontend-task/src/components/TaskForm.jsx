@@ -10,11 +10,28 @@ function TaskForm({ onAddTask }) {
     setAddForm(event.target.value);
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (addForm.trim() !== '') {
-      onAddTask({ text: addForm, completed: false })
-      setAddForm("");
+      const newTask = { text: addForm, completed: false }
+
+      try {
+        const response = await fetch('http://localhost:3000/tasks', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newTask),
+        })
+
+        if (response.ok) {
+          const createdTask = await response.json()
+          onAddTask(createdTask) // agregar la tarea a la lista visual
+          setAddForm("")
+        }
+      } catch (error) {
+        console.error('Error adding task:', error)
+      }
     }
   }
 

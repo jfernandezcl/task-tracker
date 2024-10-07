@@ -14,7 +14,8 @@ export class TaskControllers {
 
   create = async (req, res) => {
     try {
-      const newTask = await this.taskModel.create({ input: { task: req.body.task } })
+      console.log(req, res)
+      const newTask = await this.taskModel.create({ input: { text: req.body.text } })
       res.status(201).json(newTask)
     } catch (error) {
       console.error('Error creating task:', error)

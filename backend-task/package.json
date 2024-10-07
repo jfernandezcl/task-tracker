@@ -6,6 +6,10 @@
     "express": "4.21.0",
     "mysql2": "^3.11.3"
   },
+  "scripts": {
+    "dev": "node --watch server-mysql.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "standard": "^17.1.2"
   }

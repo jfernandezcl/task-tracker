@@ -16,12 +16,12 @@ function TaskForm({ onAddTask }) {
       const newTask = { text: addForm, completed: false }
 
       try {
-        const response = await fetch('http://localhost:3000/tasks', {
+        const response = await fetch('http://localhost:3000/task', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(newTask),
+          body: JSON.stringify({ text: newTask.text }), // Asegurar que es texto
         })
 
         if (response.ok) {

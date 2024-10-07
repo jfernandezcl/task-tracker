@@ -10,7 +10,7 @@ function TaskList() {
     // Hacer la petición GET para cargar las tareas del backend
     const fetchTasks = async () => {
       try {
-        const response = await fetch('http://localhost:3000/tasks')
+        const response = await fetch('http://localhost:3000/task')
         const tasks = await response.json()
         setDisplayLists(tasks)
       } catch (error) {
@@ -37,7 +37,7 @@ function TaskList() {
   // Función para eliminar una tarea
   const handleDeleteTask = async (index, taskId) => {
     try {
-      const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+      const response = await fetch(`http://localhost:3000/task/${taskId}`, {
         method: 'DELETE',
       })
 

@@ -27,11 +27,29 @@ function TaskList() {
   }
 
   // Función para alternar: completado o no
-  const handleToggleTask = (index) => {
+  const handleToggleTask = async (index) => {
+    const taskToUpdate = displayLists[index]
+    const updatedCompleted = !taskToUpdate.completed
+
+    // actualizar el estado local
     const updatedTask = displayLists.map((task, i) => {
-      return i === index ? { ...task, completed: !task.completed } : task
+      return i === index ? { ...task, completed: updatedCompleted } : task
     })
+
     setDisplayLists(updatedTask);
+
+    // hacer la llamada a la API para actualizar base de datos
+    try {
+      await fetch(`http://localhost:3000/task/${taskToUpdate.id}/completed`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ completed: updatedCompleted })
+      })
+    } catch (error) {
+      console.error('Error updating task in database:', error)
+    }
   }
 
   // Función para eliminar una tarea

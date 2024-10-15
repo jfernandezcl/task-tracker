@@ -1,6 +1,8 @@
 function Login() {
   return (
-    <section></section>
+    <section>
+      <h1>Login</h1>
+    </section>
   )
 }
 

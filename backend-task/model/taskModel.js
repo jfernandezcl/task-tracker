@@ -40,4 +40,10 @@ export class TaskModel {
     const [result] = await connection.query('DELETE FROM task WHERE id = ?', [id])
     return result
   }
+
+  static async updateCompleted(id, completed) {
+    const query = 'UPDATE task SET completed = ? WHERE id = ?'
+    const [result] = await this.db.query(query, [completed, id])
+    return result
+  }
 }

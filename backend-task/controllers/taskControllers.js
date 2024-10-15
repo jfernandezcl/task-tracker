@@ -47,6 +47,7 @@ export class TaskControllers {
       const { id } = req.params
       const { completed } = req.body
 
+      // aseguramos que el valor se  un booleano
       if (typeof completed !== 'boolean') {
         return res.status(400).json({ message: 'Invalid completed value' })
       }
@@ -60,7 +61,7 @@ export class TaskControllers {
       res.status(200).json({ message: 'Task updated successfully' })
     } catch (error) {
       console.error('Error updating task:', error)
-      res.estatus(500).json({ message: 'Error updating task' })
+      res.status(500).json({ message: 'Error updating task' })
     }
   }
 }

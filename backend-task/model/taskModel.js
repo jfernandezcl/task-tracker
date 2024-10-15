@@ -41,9 +41,13 @@ export class TaskModel {
     return result
   }
 
-  static async updateCompleted(id, completed) {
-    const query = 'UPDATE task SET completed = ? WHERE id = ?'
-    const [result] = await this.db.query(query, [completed, id])
-    return result
+  static async updateTaskCompleted(id, completed) {
+    try {
+      const query = 'UPDATE task SET completed = ? WHERE id = ?'
+      const [result] = await connection.query(query, [completed, id])
+      return result
+    } catch (error) {
+      console.error('Error updating task in database:', error)
+    }
   }
 }

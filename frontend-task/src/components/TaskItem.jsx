@@ -8,8 +8,8 @@ function TaskItem({ task, onToggle, onToggleDelete }) {
       <div className='container-checkbox'>
         <input
           type="checkbox"
-          checked={task.completed}
           onChange={onToggle}
+          checked={task.completed || false}
 
         />
       </div>

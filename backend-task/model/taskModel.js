@@ -18,7 +18,7 @@ const connection = await mysql.createConnection(connectionString)
 export class TaskModel {
   // obtener todas las tareas
   static async getAll() {
-    const [tasks] = await connection.query('SELECT id, text FROM task')
+    const [tasks] = await connection.query('SELECT id, text, completed FROM task')
     return tasks
   }
   // crear una tarea

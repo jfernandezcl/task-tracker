@@ -14,6 +14,13 @@ function Login() {
             <input type="text" placeholder="Enter your password" />
           </label>
         </div>
+
+        <div>
+          <button>Log In</button>
+        </div>
+        <div>
+          <button>Register</button>
+        </div>
       </form>
     </section>
   )

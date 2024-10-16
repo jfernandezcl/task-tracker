@@ -2,26 +2,29 @@ import '../styles/Login.css'
 
 function Login() {
   return (
-    <section>
+    <section className='container'>
+      <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
       <form className='container-form'>
         <h1 className='title-login'>Login Here</h1>
-        <div>
-          <label>Username
-            <input className='input-form' type="text" placeholder="Enter your name" />
-          </label>
+        <label className='title-label'>Username</label>
+
+        <div className='input-name'>
+          <input className='input-form' type="text" placeholder="Enter your name" />
         </div>
 
+        <label className='title-label'>Password</label>
         <div>
-          <label>Password
-            <input className='input-form' type="text" placeholder="Enter your password" />
-          </label>
+          <input className='input-form' type="text" placeholder="Enter your password" />
         </div>
 
-        <div>
-          <button>Log In</button>
+        <div className='container-buttons'>
+          <button className='form-buttons'>Log In</button>
         </div>
-        <div>
-          <button>Register</button>
+        <div className='container-buttons'>
+          <button className='form-buttons'>Register</button>
         </div>
       </form>
     </section>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import TaskForm from './TaskForm.jsx'
 import TaskItem from './TaskItem.jsx';
+import '../styles/TaskList.css'
 
 
 function TaskList() {
@@ -71,7 +72,7 @@ function TaskList() {
   return (
     <>
       <TaskForm onAddTask={addTask} />
-      <ul style={{ padding: "0" }}>
+      <ul className='task-list'>
         {displayLists.map((task, index) => (
           <TaskItem
             key={task.id || index}

@@ -1,3 +1,12 @@
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 8rem 12rem 0 12rem;
+}
+
 .form-label {
   display: flex;
   align-items: center;

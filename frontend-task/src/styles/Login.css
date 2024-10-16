@@ -1,6 +1,51 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+.shape:first-child{
+  background: linear-gradient(
+      #1845ad,
+      #23a2f6
+  );
+  left: -80px;
+  top: -80px;
+}
+.shape:last-child{
+  background: linear-gradient(
+      to right,
+      #ff512f,
+      #f09819
+  );
+  right: -30px;
+  bottom: -80px;
+}
+
 .container-form {
-  background-color: rgba(68, 72, 87, 0.6);
-  padding: 32px;
+  position: absolute;
+  background-color: #1b1a22;
+  border-radius: 12px;
+  padding: 36px;
 }
 
 .title-login {
@@ -8,8 +53,36 @@
   font-size: 32px;
 }
 
+.title-label {
+  color: white;
+  font-weight: 600;
+  display: flex;
+}
+
+.input-name {
+  margin-bottom: 24px;
+}
+
 .input-form {
+  padding-left: 12px;
+  margin-top: 6px;
   border: none;
   background-color: #37363e;
   color: white;
+  border-radius: 4px;
+  height: 45px;
+  width: 250px;
+}
+
+.container-buttons {
+  margin-top: 32px;
+}
+
+.form-buttons {
+  border: none;
+  height: 45px;
+  width: 250px;
+  border-radius: 4px;
+  font-weight: 750;
+  font-size: 16px;
 }

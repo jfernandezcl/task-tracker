@@ -1,7 +1,12 @@
 function Login() {
   return (
     <section>
-      <h1>Login Here</h1>
+      <form>
+        <h1>Login Here</h1>
+        <label>Username
+          <input type="text" placeholder="Enter your name" />
+        </label>
+      </form>
     </section>
   )
 }

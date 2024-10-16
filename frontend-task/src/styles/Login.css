@@ -1,4 +1,15 @@
 .container-form {
-  background-color: #444857;
+  background-color: rgba(68, 72, 87, 0.6);
   padding: 32px;
+}
+
+.title-login {
+  color: white;
+  font-size: 32px;
+}
+
+.input-form {
+  border: none;
+  background-color: #37363e;
+  color: white;
 }

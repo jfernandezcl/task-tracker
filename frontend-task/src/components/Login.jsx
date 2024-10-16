@@ -4,16 +4,16 @@ function Login() {
   return (
     <section>
       <form className='container-form'>
-        <h1>Login Here</h1>
+        <h1 className='title-login'>Login Here</h1>
         <div>
           <label>Username
-            <input type="text" placeholder="Enter your name" />
+            <input className='input-form' type="text" placeholder="Enter your name" />
           </label>
         </div>
 
         <div>
           <label>Password
-            <input type="text" placeholder="Enter your password" />
+            <input className='input-form' type="text" placeholder="Enter your password" />
           </label>
         </div>
 

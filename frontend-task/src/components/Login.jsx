@@ -3,7 +3,7 @@ import '../styles/Login.css'
 function Login() {
   return (
     <section>
-      <form>
+      <form className='container-form'>
         <h1>Login Here</h1>
         <div>
           <label>Username

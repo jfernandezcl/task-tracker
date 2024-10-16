@@ -19,10 +19,10 @@ function Register() {
         </div>
 
         <div className='container-buttons'>
-          <button className='form-buttons'>Log In</button>
+          <button className='form-buttons'>Register</button>
         </div>
         <div className='container-buttons'>
-          <button className='form-buttons'>Register</button>
+          <button className='form-buttons'>Log In</button>
         </div>
       </form>
     </section>

@@ -4,7 +4,7 @@ import { useLocation } from 'wouter'
 function Register() {
 
   const [, navigate] = useLocation()
-  const handleLoginClick = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault()
     navigate('/login')
   }
@@ -33,7 +33,7 @@ function Register() {
             Register</button>
         </div>
         <div className='container-buttons'>
-          <button className='form-buttons' onClick={handleLoginClick}>Log In</button>
+          <button className='form-buttons' onClick={handleLogin}>Log In</button>
         </div>
       </form>
     </section>

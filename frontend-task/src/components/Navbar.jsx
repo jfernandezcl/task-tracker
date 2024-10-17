@@ -1,7 +1,11 @@
+import '../styles/Navbar.css'
+
 function Navbar() {
   return (
     <>
-      <button>Log out</button>
+      <div className='container-navbar'>
+        <button className="button-logout">Log out</button>
+      </div>
     </>
   )
 }

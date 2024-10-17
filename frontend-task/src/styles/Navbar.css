@@ -1,0 +1,13 @@
+.container-navbar {
+  display: flex;
+  justify-content: end;
+  margin-right: 32px;
+}
+
+.button-logout {
+  border: none;
+  margin-top: 2rem;
+  background-color: #61adfc;
+  padding: 16px;
+  border-radius: 24px;
+}

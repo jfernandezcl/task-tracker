@@ -1,4 +1,4 @@
-import '../styles/Login.css'
+import '../styles/Login-Register.css'
 import { useLocation } from 'wouter'
 
 function Login() {

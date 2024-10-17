@@ -1,3 +1,5 @@
+import '../styles/Login-Register.css';
+
 function Register() {
 
   return (
@@ -20,7 +22,7 @@ function Register() {
         </div>
 
         <div className='container-buttons'>
-          <button className='form-buttons' onClick={handleRegister}>
+          <button className='form-buttons'>
             Register</button>
         </div>
         <div className='container-buttons'>

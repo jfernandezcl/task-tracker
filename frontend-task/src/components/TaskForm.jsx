@@ -1,6 +1,7 @@
 import { useState } from "react";
 import '../styles/TaskForm.css'
 import icon from '../images/iconEnter.svg'
+import Navbar from "./Navbar";
 
 
 function TaskForm({ onAddTask }) {
@@ -37,6 +38,11 @@ function TaskForm({ onAddTask }) {
 
   return (
     <>
+
+      <div>
+        <Navbar />
+      </div>
+
       <div className="form">
         <h1 className="form-label">
           Task Tracker

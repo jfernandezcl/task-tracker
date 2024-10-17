@@ -1,6 +1,13 @@
 import '../styles/Login-Register.css';
+import { useLocation } from 'wouter'
 
 function Register() {
+
+  const [, navigate] = useLocation()
+  const handleLoginClick = (e) => {
+    e.preventDefault()
+    navigate('/login')
+  }
 
   return (
     <section className='container'>
@@ -26,7 +33,7 @@ function Register() {
             Register</button>
         </div>
         <div className='container-buttons'>
-          <button className='form-buttons'>Log In</button>
+          <button className='form-buttons' onClick={handleLoginClick}>Log In</button>
         </div>
       </form>
     </section>

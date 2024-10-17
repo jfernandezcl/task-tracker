@@ -1,5 +1,5 @@
 import express, { json } from 'express'
-import { createTaskRouter } from './routes/taskRoutes.js'
+import { taskRouter } from './routes/taskRoutes.js'
 import { corsMiddlewares } from './middlewares/corsMiddlewares.js'
 import dotenv from 'dotenv'
 
@@ -12,7 +12,7 @@ export const createApp = ({ taskModel }) => {
   app.use(corsMiddlewares())
   app.disable('x-powered-by')
 
-  app.use('/task', createTaskRouter({ taskModel }))
+  app.use('/task', taskRouter({ taskModel }))
 
   const desiredPort = process.env.PORT ?? 3000
 

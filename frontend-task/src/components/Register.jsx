@@ -9,6 +9,11 @@ function Register() {
     navigate('/login')
   }
 
+  const handleRegister = (e) => {
+    e.preventDefault()
+    navigate('/')
+  }
+
   return (
     <section className='container'>
       <div className="background">
@@ -29,7 +34,7 @@ function Register() {
         </div>
 
         <div className='container-buttons'>
-          <button className='form-buttons'>
+          <button className='form-buttons' onClick={handleRegister}>
             Register</button>
         </div>
         <div className='container-buttons'>

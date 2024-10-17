@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Router base="/">
-        <Route path="/app" component={TaskList} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route path="/app" component={() => <TaskList />} />
+        <Route path="/login" component={() => <Login />} />
+        <Route path="/register" component={() => <Register />} />
       </Router>
     </>
   )

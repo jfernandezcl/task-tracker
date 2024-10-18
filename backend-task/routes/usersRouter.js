@@ -6,8 +6,8 @@ export const usersRouter = ({ usersModel }) => {
 
   const usersController = new UsersController({ usersModel })
 
-  myUsersRouter.get('/login', usersController.getAll)
   myUsersRouter.post('/register', usersController.create)
+  myUsersRouter.post('/login', usersController.login)
 
   return myUsersRouter
 } 

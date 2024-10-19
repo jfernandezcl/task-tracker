@@ -10,4 +10,4 @@ export const usersRouter = ({ usersModel }) => {
   myUsersRouter.post('/login', usersController.login)
 
   return myUsersRouter
-} 
+}

@@ -1,2 +1,5 @@
-import { UsersModel } from "../model/usersModel.js";
-
+export class usersControllers {
+  constructor({ usersModel }) {
+    this.usersModel = usersModel
+  }
+}

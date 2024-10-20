@@ -17,9 +17,9 @@ export class usersControllers {
   async login(req, res) {
     try {
       const authenticatedUser = await this.usersModel.login(req.body)
-      res.status(200)
+      res.status(200).json(authenticatedUser)
     } catch (error) {
-
+      res.status(401).json({ error: error.message })
     }
   }
 

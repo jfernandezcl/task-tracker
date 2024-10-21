@@ -1,4 +1,4 @@
-import { usersValidations } from '../validationsRegister/usersValidations'
+import { usersValidations } from '../validationsRegister/usersValidations.js'
 import jwt from 'jsonwebtoken'
 
 const jwtSecret = process.env.JWT_SECRET
@@ -33,7 +33,7 @@ export class UsersControllers {
       const token = jwt.sign({ id: authenticatedUser.id }, jwtSecret, { expiresIn: '1h' })
 
       // almacenar el token en una cookie
-      res.cookie('token', token, { httpOnly: true, masAge: 36000000 }) // 1 hora
+      res.cookie('token', token, { httpOnly: true, maxAge: 36000000 }) // 1 hora
 
     } catch (error) {
       res.status(401).json({ error: error.message })

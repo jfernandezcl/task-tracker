@@ -16,22 +16,22 @@ export class UsersModel {
     const hashedPassword = await bcrypt.hash(password, 10)
 
     const [result] = await connection.query(
-      'INSERT INTO users (username, password) VALUES (?, ?)'
+      'INSERT INTO users (username, password) VALUES (?, ?)',
       [username, hashedPassword] // Usar la contraseña cifrada
     )
 
     const [newUser] = await connection.query(
-      'SELECT id, username FROM users WHERE id = ?;'
+      'SELECT id, username FROM users WHERE id = ?;',
       [result.insertId]
     )
     return newUser[0]
   }
 
   // Iniciar sesión
-  static async login([username, password]) {
+  static async login({ username, password }) {
     // Buscar el usuario en la base de datos
     const [user] = await connection.query(
-      'SELECT * FROM users WHERE username = ?'
+      'SELECT * FROM users WHERE username = ?',
       [username]
     )
     if (user.length === 0) {

@@ -18,10 +18,5 @@ export const createApp = ({ taskModel, usersModel }) => {
 
   app.use('/task', taskRouter({ taskModel }))
 
-  const desiredPort = process.env.PORT ?? 3000
-
-  app.listen(desiredPort, () => {
-    console.log(`server listening on port http://localhost:${desiredPort}`)
-  })
 }
 

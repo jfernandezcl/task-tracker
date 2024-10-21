@@ -9,7 +9,7 @@ export class UsersControllers {
   }
 
   //método para regitrar un nuevo usuario
-  async create(req, res) {
+  async register(req, res) {
     try {
 
       // Realizar las validaciones del usuario

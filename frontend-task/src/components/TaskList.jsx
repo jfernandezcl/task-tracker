@@ -11,9 +11,26 @@ function TaskList() {
     // Hacer la petición GET para cargar las tareas del backend
     const fetchTasks = async () => {
       try {
-        const response = await fetch('http://localhost:3000/task')
+        const response = await fetch('http://localhost:3000/task', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        })
+
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+
         const tasks = await response.json()
-        setDisplayLists(tasks)
+
+        if (Array.isArray(tasks)) {
+          setDisplayLists(tasks)
+        } else {
+          console.error('Expected tasks to be an array:', tasks);
+        }
       } catch (error) {
         console.error('Error when loading tasks:', error)
       }
@@ -44,7 +61,8 @@ function TaskList() {
       await fetch(`http://localhost:3000/task/${taskToUpdate.id}/completed`, {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ completed: updatedCompleted })
       })
@@ -58,6 +76,9 @@ function TaskList() {
     try {
       const response = await fetch(`http://localhost:3000/task/${taskId}`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
       })
 
       if (response.ok) {

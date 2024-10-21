@@ -29,6 +29,8 @@ function TaskForm({ onAddTask }) {
           const createdTask = await response.json()
           onAddTask(createdTask) // agregar la tarea a la lista visual
           setAddForm("")
+        } else {
+          console.error('Error adding task:', response.statusText);
         }
       } catch (error) {
         console.error('Error adding task:', error)

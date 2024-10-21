@@ -6,7 +6,7 @@ export const usersRouter = ({ usersModel }) => {
 
   const usersController = new UsersControllers({ usersModel })
 
-  myUsersRouter.post('/register', usersController.create.bind(usersController))
+  myUsersRouter.post('/register', usersController.register.bind(usersController))
   myUsersRouter.post('/login', usersController.login.bind(usersController))
 
   return myUsersRouter

@@ -4,6 +4,7 @@ import { corsMiddlewares } from './middlewares/corsMiddlewares.js'
 import dotenv from 'dotenv'
 import { usersRouter } from './routes/usersRouter.js'
 import { json } from 'express'
+import cookieParser from 'cookie-parser'
 
 dotenv.config()
 
@@ -11,6 +12,7 @@ export const createApp = ({ taskModel, usersModel }) => {
   const app = express()
 
   app.use(json())
+  app.use(cookieParser());
   app.use(corsMiddlewares())
   app.disable('x-powered-by')
 

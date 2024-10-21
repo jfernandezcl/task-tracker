@@ -12,10 +12,9 @@ export const authenticateToken = (req, res, next) => {
   }
 
   jwt.verify(token, jwtSecret, (error, user) => {
-    if (error) {
-      return res.status(403).json({ error: 'Invalid token.' })
-    }
-    req.user = user // guardar el usuario en la solicitud
-    next()
+    if (error)
+      if (err) return res.sendStatus(403); // Token inválido, retorno 403
+    req.user = user;
+    next(); // Continuar al siguiente middleware
   })
 }

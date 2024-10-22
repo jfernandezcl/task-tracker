@@ -9,6 +9,13 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (!username || !password) {
+      console.error('Username y password son requeridos')
+      return
+    }
+    console.log('Datos enviados:', { username, password })
+
     console.log('Registrando usuario...');
     try {
       const response = await fetch('http://localhost:3000/users/register', {
@@ -17,6 +24,7 @@ function Register() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
+
       });
 
       if (response.ok) {
@@ -57,7 +65,7 @@ function Register() {
         />
 
         <div className='container-buttons'>
-          <button className='form-buttons' type='button'>Register</button>
+          <button className='form-buttons' type='submit'>Register</button>
         </div>
         <div className='container-buttons'>
           <button className='form-buttons' type='button' onClick={() => navigate('/login')}>

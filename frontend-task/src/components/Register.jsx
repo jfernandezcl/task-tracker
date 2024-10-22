@@ -57,7 +57,7 @@ function Register() {
         />
 
         <div className='container-buttons'>
-          <button className='form-buttons' type='submit'>Register</button>
+          <button className='form-buttons' type='button'>Register</button>
         </div>
         <div className='container-buttons'>
           <button className='form-buttons' type='button' onClick={() => navigate('/login')}>

@@ -1,43 +1,36 @@
-import { useState } from 'react'
-import '../styles/Login-Register.css'
-import { useLocation } from 'wouter'
+import { useState } from 'react';
+import '../styles/Login-Register.css';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [, navigate] = useLocation()
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleRegisterClick = (e) => {
-    e.preventDefault()
-    navigate('/register')
-  }
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    console.log('Iniciando sesión');
     try {
       const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password })
-      })
+        body: JSON.stringify({ username, password }),
+      });
 
       if (response.ok) {
-        const { token } = await response.json()
-        localStorage.setItem('token', token) // almacenar el token
-        navigate('/') // redirigir al usuario después de iniciar sesión
+        const { token } = await response.json();
+        localStorage.setItem('token', token); // Almacenar el token
+        console.log('Inicio de sesión exitoso, redirigiendo a las notas...');
+        navigate('/'); // Redirigir a la página de notas
+      } else {
+        console.error('Error en la respuesta del login:', response.statusText);
       }
-
     } catch (error) {
-      console.error('Error in the login request:', error);
+      console.error('Error en la solicitud de inicio de sesión:', error);
     }
-  }
-
-  const handleLoginClick = (e) => {
-    e.preventDefault()
-    handleLogin(e)
-  }
+  };
 
   return (
     <section className='container'>
@@ -48,39 +41,34 @@ function Login() {
       <form className='container-form'>
         <h1 className='title-login'>Login Here</h1>
         <label className='title-label'>Username</label>
-
-        <div className='input-name'>
-          <input
-            className='input-form'
-            type="text"
-            placeholder="Enter your name"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
+        <input
+          className='input-form'
+          type="text"
+          placeholder="Enter your name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
         <label className='title-label'>Password</label>
-        <div>
-          <input
-            className='input-form'
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+        <input
+          className='input-form'
+          type="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <div className='container-buttons'>
-          <button className='form-buttons' onClick={handleLoginClick}>Log In</button>
+          <button className='form-buttons' onClick={handleLogin}>Log In</button>
         </div>
         <div className='container-buttons'>
-          <button className='form-buttons' onClick={handleRegisterClick}>
-            Register
+          <button className='form-buttons' onClick={() => navigate('/register')}>
+            Go to Register
           </button>
         </div>
       </form>
     </section>
-  )
+  );
 }
 
-export default Login
+export default Login;

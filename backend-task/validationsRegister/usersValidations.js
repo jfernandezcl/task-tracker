@@ -1,7 +1,6 @@
 export const usersValidations = (data) => {
-  const usersName = /^[a-z]{6,}$/ // Al menos tien que ser 6 letras minúsculas
-  const usersPassword = /^(?=.*\d)(?=.*[A-Z])[a-zA-Z\d]{8,}$/ // 8 caracteres, una mayúscula y un número
-
+  const usersName = /^[a-zA-Z]{4,}$/;
+  const usersPassword = /^.{4,}$/;
   if (!usersName.test(data.userName)) {
     throw new Error('The username must be at least 6 lowercase letters.')
   }

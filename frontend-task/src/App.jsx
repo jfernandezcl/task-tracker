@@ -1,20 +1,18 @@
-import './App.css'
+import './App.css';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
-import TaskList from './components/TaskList.jsx'
-import { Router, Route } from "wouter";
+import TaskList from './components/TaskList.jsx';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-
   return (
-    <>
-      <Router>
-        <Route path="/" component={TaskList} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-      </Router>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<TaskList />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+
+  );
 }
 
-export default App
+export default App;

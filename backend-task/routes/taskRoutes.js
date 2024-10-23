@@ -8,10 +8,9 @@ export const taskRouter = ({ taskModel }) => {
 
   const taskController = new TaskControllers({ taskModel })
 
-  taskRouter.get('/', authenticateToken, taskController.getAll)
-  taskRouter.post('/', authenticateToken, taskController.create)
-  taskRouter.delete('/:id', authenticateToken, taskController.delete)
-  taskRouter.patch('/:id/completed', authenticateToken, taskController.updateTaskCompleted)
-
+  taskRouter.get('/', authenticateToken, taskController.getAll.bind(taskController));
+  taskRouter.post('/', authenticateToken, taskController.create.bind(taskController));
+  taskRouter.delete('/:id', authenticateToken, taskController.delete.bind(taskController));
+  taskRouter.patch('/:id/completed', authenticateToken, taskController.updateTaskCompleted.bind(taskController));
   return taskRouter
 }

@@ -10,6 +10,7 @@ export class UsersControllers {
 
   //método para regitrar un nuevo usuario
   async register(req, res) {
+    console.log(req.body);
     try {
 
       // Realizar las validaciones del usuario
@@ -19,7 +20,8 @@ export class UsersControllers {
       const user = await this.usersModel.create(req.body)
       res.status(201).json(user) // devolver el nuevo usuario creado
     } catch (error) {
-      res.status(400).json({ error: error.message }) // devolver el mensaje de error
+      console.error("Error durante el registro:", error);
+      res.status(400).json({ error: error.message || "Error desconocido" }); // devolver el mensaje de error
     }
   }
 
@@ -29,12 +31,16 @@ export class UsersControllers {
       // autenticar al usuario
       const authenticatedUser = await this.usersModel.login(req.body)
 
+      if (!authenticatedUser) {
+        return res.status(401).json({ error: 'Invalid credentials' });
+      }
+
       // crear el token
       const token = jwt.sign({ id: authenticatedUser.id }, jwtSecret, { expiresIn: '1h' })
 
       // almacenar el token en una cookie
       res.cookie('token', token, { httpOnly: true, maxAge: 36000000 }) // 1 hora
-
+      res.status(200).json({ message: 'Logged in successfully' });
     } catch (error) {
       res.status(401).json({ error: error.message })
     }

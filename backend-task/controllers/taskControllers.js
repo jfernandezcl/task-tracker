@@ -14,7 +14,11 @@ export class TaskControllers {
 
   create = async (req, res) => {
     try {
-      console.log(req, res)
+
+      if (!req.body.text) {
+        return res.status(400).json({ message: 'Task text is required' });
+      }
+
       const newTask = await this.taskModel.create({ input: { text: req.body.text } })
       res.status(201).json(newTask)
     } catch (error) {
@@ -46,6 +50,10 @@ export class TaskControllers {
     try {
       const { id } = req.params
       const { completed } = req.body
+
+      if (typeof completed !== 'boolean') {
+        return res.status(400).json({ message: 'Invalid completed value' });
+      }
 
       // aseguramos que el valor se  un booleano
       if (typeof completed !== 'boolean') {

@@ -11,7 +11,7 @@ dotenv.config()
 export const createApp = ({ taskModel, usersModel }) => {
   const app = express()
 
-  app.use(json())
+  app.use(express.json())
   app.use(cookieParser());
   app.use(corsMiddlewares())
   app.disable('x-powered-by')

@@ -14,7 +14,7 @@ export class UsersModel {
     }
 
     // cifrar la contraseña antes de guardarla
-    const hashedPassword = await bcrypt.hash(password, 10)
+    const hashedPassword = await bcrypt.hash(password, 15)
 
     const [result] = await connection.query(
       'INSERT INTO users (username, password) VALUES (?, ?)',

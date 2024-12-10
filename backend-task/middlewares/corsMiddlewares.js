@@ -1,5 +1,10 @@
 import cors from 'cors'
 
-export const corsMiddlewares = () => cors({
-  origin: '*' // Permitir cualquier origen
-})
+export const corsMiddlewares = () => {
+  return cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true,
+  })
+}

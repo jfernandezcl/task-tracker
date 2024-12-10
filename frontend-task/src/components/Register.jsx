@@ -24,6 +24,7 @@ function Register() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
+        credentials: 'include',
       });
       console.log(response)
 

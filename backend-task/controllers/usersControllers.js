@@ -10,7 +10,7 @@ export class UsersControllers {
 
   //método para regitrar un nuevo usuario
   async register(req, res) {
-    console.log(req.body);
+    console.log('Datos enviados:', req.body);
     try {
 
       // Realizar las validaciones del usuario
@@ -18,6 +18,7 @@ export class UsersControllers {
 
       // crear el nuevo usuario
       const user = await this.usersModel.create(req.body)
+      console.log('Usuario devuelto:', user)
       res.status(201).json(user) // devolver el nuevo usuario creado
     } catch (error) {
       console.error("Error durante el registro:", error);

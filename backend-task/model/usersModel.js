@@ -8,6 +8,7 @@ export class UsersModel {
       'SELECT * FROM users WHERE username = ?',
       [username]
     );
+    console.log('Usuario existente:', existingUser)
     if (existingUser.length > 0) {
       throw new Error('The username already exists, choose another one.')
     }

@@ -24,14 +24,12 @@ function Register() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
-
       });
+      console.log(response)
 
       if (response.ok) {
         console.log('Registro exitoso, redirigiendo a inicio de sesión...');
         navigate('/login'); // Redirigir a la página de inicio de sesión después del registro
-      } else {
-        console.error('Error en la respuesta del registro:', response.statusText);
       }
     } catch (error) {
       console.error('Error en la solicitud de registro:', error);

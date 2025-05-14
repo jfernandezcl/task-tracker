@@ -14,7 +14,6 @@ function Register() {
       console.error('Username y password son requeridos')
       return
     }
-    console.log('Datos enviados:', { username, password })
 
     console.log('Registrando usuario...');
     try {

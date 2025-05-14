@@ -7,7 +7,7 @@ const taskModel = new TaskModel();
 const usersModel = new UsersModel()
 
 // crear la aplicacion pasándole las instancias de los modelos y asigna a una variable
-const app = createApp({ taskModel, usersModel })
+const app = createApp({ taskModel }, usersModel.create)
 
 const desiredPort = process.env.PORT ?? 3000
 

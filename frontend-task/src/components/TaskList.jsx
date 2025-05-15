@@ -37,11 +37,9 @@ function TaskList() {
         if (Array.isArray(tasks)) {
           setDisplayLists(tasks);
         } else {
-          console.error("Expected tasks to be an array:", tasks);
           setError("Error al cargar tareas: formato inesperado");
         }
-      } catch (error) {
-        console.error("Error when loading tasks:", error);
+      } catch {
         setError(
           "Error al cargar tareas. Por favor, inténtalo de nuevo más tarde."
         );

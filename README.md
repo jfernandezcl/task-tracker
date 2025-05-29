@@ -1,27 +1,25 @@
 # Task Tracker
 
-Una aplicación sencilla para gestionar tareas que permite a los usuarios agregar nuevas tareas, marcarlas como completadas o incompletas, y eliminarlas. Las tareas completadas se mueven al final de la lista y se muestran con una línea que las atraviesa. Los usuarios también pueden desmarcar las tareas completadas para devolverlas a la lista pendiente.
+A simple task tracker application that allows users to add new tasks, mark them as completed or uncompleted, and delete them. Completed tasks are moved to the end of the list and shown with a strikethrough. Users can also unmark completed tasks to return them to the pending list.
 
 ---
 
-## 📋 Descripción del proyecto
+## 📋 Project Description
 
-- Los usuarios pueden agregar tareas con descripción.
-- Las tareas se pueden marcar como completadas o incompletas.
-- Las tareas completadas aparecen al final de la lista con estilo de tachado.
-- Las tareas se pueden eliminar.
-- La lista de tareas se actualiza dinámicamente según el estado actual.
+- Users can add tasks with a description.
+- Tasks can be marked as completed or uncompleted.
+- Completed tasks appear at the bottom of the list with a strikethrough style.
+- Tasks can be deleted.
+- The task list updates dynamically based on the current state.
 
 ---
 
-🛠 Tecnologías utilizadas
+## 🛠 Technologies Used
 
-    React
+- React
+- React Router DOM
+- Vite
+- Wouter (for routing)
+- TypeScript
 
-    React Router DOM
-
-    Vite
-
-    Wouter (para el enrutamiento)
-
-    TypeScript
+---

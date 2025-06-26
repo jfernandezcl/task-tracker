@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,

@@ -1,22 +1,23 @@
-import { useLocation } from 'wouter'
-import '../styles/Navbar.css'
+import "../styles/Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-
-  const [, navigate] = useLocation()
+  const navigate = useNavigate();
 
   const handleLogout = (e) => {
-    e.preventDefault()
-    navigate('/login')
-  }
+    e.preventDefault();
+    navigate("/login");
+  };
 
   return (
     <>
-      <div className='container-navbar'>
-        <button className="button-logout" onClick={handleLogout}>Log out</button>
+      <div className="container-navbar">
+        <button className="button-logout" onClick={handleLogout}>
+          Log out
+        </button>
       </div>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

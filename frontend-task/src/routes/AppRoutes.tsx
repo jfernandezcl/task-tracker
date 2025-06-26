@@ -4,7 +4,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import TaskList from "../components/TaskList";
 
-const AppRoutes = () => {
+const AppRoutes = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<TaskList />} />

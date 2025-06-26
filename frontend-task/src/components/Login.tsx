@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "../styles/Login-Register.css";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(): JSX.Element  {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     console.log("Iniciando sesión");
     try {

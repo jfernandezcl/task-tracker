@@ -5,21 +5,17 @@ const jwtSecret = process.env.JWT_SECRET;
 
 export class UsersControllers {
   constructor(usersModel) {
-    console.log(usersModel);
     this.usersModel = usersModel;
   }
 
   async register(req, res) {
-    console.log("Datos enviados:", req.body);
     try {
       usersValidations(req.body);
 
       const user = await this.usersModel.create(req.body);
-      console.log("Datos recibidos para registro:", req.body);
 
       res.status(201).json(user);
     } catch (error) {
-      console.error("Error durante el registro:", error);
       res.status(400).json({ error: error.message || "Error desconocido" });
     }
   }

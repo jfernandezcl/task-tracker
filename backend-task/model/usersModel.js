@@ -2,13 +2,11 @@ import connection from "../dataBase/dataBase.js";
 import bcrypt from "bcrypt";
 
 export class UsersModel {
-  static async create({ username, password }) {
-    console.log("Verificando usuario existente");
+  static async create({ username, email, password }) {
     const [existingUser] = await connection.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
+      "SELECT * FROM users WHERE username = ? OR email = ?",
+      [username, email]
     );
-    console.log("Usuario existente:", existingUser);
     if (existingUser.length > 0) {
       throw new Error("The username already exists, choose another one.");
     }
@@ -16,16 +14,14 @@ export class UsersModel {
     const hashedPassword = await bcrypt.hash(password, 15);
 
     const [result] = await connection.query(
-      "INSERT INTO users (username, password) VALUES (?, ?)",
-      [username, hashedPassword]
+      "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+      [username, email, hashedPassword]
     );
-    console.log("Resultado de la inserción:", result);
 
     const [newUser] = await connection.query(
-      "SELECT id, username FROM users WHERE id = ?;",
+      "SELECT id, username, email FROM users WHERE id = ?;",
       [result.insertId]
     );
-    console.log("ID insertado:", result.insertId);
     return newUser[0];
   }
 

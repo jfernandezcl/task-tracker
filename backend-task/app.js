@@ -19,7 +19,6 @@ export const createApp = ({ taskModel }, usersModel) => {
   app.use(corsMiddlewares());
   app.disable("x-powered-by");
 
-  // Rutas de usuarios
   app.use("/users", usersRouter(usersModel));
 
   app.use("/task", taskRouter({ taskModel }));

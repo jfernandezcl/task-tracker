@@ -16,7 +16,6 @@ export class UsersControllers {
 
       res.status(201).json(user);
     } catch (error) {
-      console.error("🔴 Error en controlador:", error);
       res.status(400).json({ error: error.message || "Error desconocido" });
     }
   }

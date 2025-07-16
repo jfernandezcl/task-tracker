@@ -23,7 +23,6 @@ export class TaskControllers {
       });
       res.status(201).json(newTask);
     } catch (error) {
-      console.error("Error creating task:", error);
       res.status(500).json({ message: "Error creating task" });
     }
   };
@@ -41,7 +40,6 @@ export class TaskControllers {
 
       res.status(200).json({ message: "Task deleted successfully" });
     } catch (error) {
-      console.error("Error delete task:", error);
       res.status(500).json({ message: "Error when deleting" });
     }
   };
@@ -55,7 +53,6 @@ export class TaskControllers {
         return res.status(400).json({ message: "Invalid completed value" });
       }
 
-      // aseguramos que el valor se  un booleano
       if (typeof completed !== "boolean") {
         return res.status(400).json({ message: "Invalid completed value" });
       }
@@ -68,7 +65,6 @@ export class TaskControllers {
 
       res.status(200).json({ message: "Task updated successfully" });
     } catch (error) {
-      console.error("Error updating task:", error);
       res.status(500).json({ message: "Error updating task" });
     }
   };

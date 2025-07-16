@@ -5,7 +5,7 @@ const SERVER_CONFIG = {
   user: "root",
   port: 1234,
   password: "",
-  database: "tasktracker",
+  database: "task_tracker",
 };
 
 const connectionString = process.env.DATABASE_URL ?? SERVER_CONFIG;

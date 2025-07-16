@@ -5,6 +5,7 @@ import "../styles/Login-Register.css";
 function Register(): JSX.Element {
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleRegister = async (e: FormEvent) => {
@@ -22,7 +23,7 @@ function Register(): JSX.Element {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username,email, password }),
         credentials: "include",
       });
       console.log(response);
@@ -52,6 +53,15 @@ function Register(): JSX.Element {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+
+        <label className="title-label">Email</label>
+          <input
+            className="input-form"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
         <label className="title-label">Password</label>
         <input

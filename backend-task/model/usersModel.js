@@ -1,5 +1,6 @@
 import connection from "../dataBase/dataBase.js";
 import bcrypt from "bcrypt";
+import { v4 as uuidv4 } from "uuid";
 
 export class UsersModel {
   static async create({ username, email, password }) {
@@ -13,16 +14,23 @@ export class UsersModel {
 
     const hashedPassword = await bcrypt.hash(password, 15);
 
+    console.log("Username:", username);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Generando UUID...");
+    const id = Buffer.from(uuidv4().replace(/-/g, ""), "hex");
+    console.log("UUID generado (hex):", id.toString("hex"));
+
     const [result] = await connection.query(
-      "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
-      [username, email, hashedPassword]
+      "INSERT INTO users (id, username, email, password) VALUES (?, ?, ?, ?)",
+      [id, username, email, hashedPassword]
     );
 
     console.log("Resultado inserción:", result);
 
     const [newUser] = await connection.query(
       "SELECT id, username, email FROM users WHERE id = ?;",
-      [result.insertId]
+      [id]
     );
     return newUser[0];
   }

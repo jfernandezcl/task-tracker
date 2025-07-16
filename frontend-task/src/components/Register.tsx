@@ -27,11 +27,10 @@ function Register(): JSX.Element {
       });
 
       if (response.ok) {
-        console.log("Registro exitoso, redirigiendo a inicio de sesión...");
         navigate("/login");
       }
     } catch (error) {
-      console.error("Error en la solicitud de registro:", error);
+      console.error("Error in the application for registration:", error);
     }
   };
 

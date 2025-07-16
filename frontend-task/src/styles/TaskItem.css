@@ -15,14 +15,12 @@
   border-bottom: none;
 }
 
-/*Contenedor checkbox*/
 .container-checkbox {
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
-/*Contenedor del texto*/
 .container-text {
   flex-grow: 1;
   display: flex;
@@ -35,7 +33,6 @@
   margin-right: 12px;
 }
 
-/*Contenedor del boton*/
 .container-button {
   display: flex;
   justify-content: right;

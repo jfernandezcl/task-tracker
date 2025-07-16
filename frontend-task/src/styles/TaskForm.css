@@ -16,7 +16,6 @@
   font-weight: 600;
   margin-bottom: 12px;
 }
-/*Contenedor para el input y el boton*/
 .container-input {
   display: flex;
   flex-direction: row;

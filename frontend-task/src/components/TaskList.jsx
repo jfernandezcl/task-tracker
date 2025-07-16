@@ -13,7 +13,7 @@ function TaskList() {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      console.error("Token no definido. El usuario no está autenticado.");
+      console.error("Undefined token. The user is not authenticated.");
       navigate("/login");
       return;
     }
@@ -37,12 +37,10 @@ function TaskList() {
         if (Array.isArray(tasks)) {
           setDisplayLists(tasks);
         } else {
-          setError("Error al cargar tareas: formato inesperado");
+          setError("Error loading tasks: unexpected format");
         }
       } catch {
-        setError(
-          "Error al cargar tareas. Por favor, inténtalo de nuevo más tarde."
-        );
+        setError("Error loading tasks. Please try again later.");
       }
     };
     fetchTasks();
@@ -56,7 +54,7 @@ function TaskList() {
   const handleToggleTask = async (index) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      console.error("Token no definido. No se puede completar la acción.");
+      console.error("Token not defined. Action cannot be completed.");
       navigate("/login");
       return;
     }
@@ -84,18 +82,18 @@ function TaskList() {
       );
 
       if (!response.ok) {
-        throw new Error("Error al actualizar la tarea en la base de datos");
+        throw new Error("Error when updating the task in the database");
       }
     } catch (error) {
       console.error("Error updating task in database:", error);
-      setError("Error al actualizar la tarea. Por favor, inténtalo de nuevo.");
+      setError("Error updating the task. Please try again.");
     }
   };
 
   const handleDeleteTask = async (index, taskId) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      console.error("Token no definido. No se puede completar la acción.");
+      console.error("Token not defined. Action cannot be completed.");
       navigate("/login");
       return;
     }
@@ -112,11 +110,11 @@ function TaskList() {
         const taskslist = displayLists.filter((_, i) => i !== index);
         setDisplayLists(taskslist);
       } else {
-        throw new Error("Error al eliminar la tarea");
+        throw new Error("Error deleting the task.");
       }
     } catch (error) {
       console.error("Error when deleting the task:", error);
-      setError("Error al eliminar la tarea. Por favor, inténtalo de nuevo.");
+      setError("Error deleting the task. Please try again.");
     }
   };
 

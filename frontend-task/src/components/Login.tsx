@@ -21,13 +21,12 @@ function Login(): JSX.Element  {
       if (response.ok) {
         const { token } = await response.json();
         localStorage.setItem("token", token);
-        console.log("Inicio de sesión exitoso, redirigiendo a las notas...");
         navigate("/");
       } else {
-        console.error("Error en la respuesta del login:", response.statusText);
+        console.error("Error in login response:", response.statusText);
       }
     } catch (error) {
-      console.error("Error en la solicitud de inicio de sesión:", error);
+      console.error("Error in the login request:", error);
     }
   };
 

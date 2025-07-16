@@ -18,6 +18,8 @@ export class UsersModel {
       [username, email, hashedPassword]
     );
 
+    console.log("Resultado inserción:", result);
+
     const [newUser] = await connection.query(
       "SELECT id, username, email FROM users WHERE id = ?;",
       [result.insertId]

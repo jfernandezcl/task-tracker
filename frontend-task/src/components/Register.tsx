@@ -11,12 +11,11 @@ function Register(): JSX.Element {
   const handleRegister = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!username || !password) {
+    if (!username || !email || !password) {
       console.error("Username y password son requeridos");
       return;
     }
 
-    console.log("Registrando usuario...");
     try {
       const response = await fetch("http://localhost:3000/users/register", {
         method: "POST",
@@ -26,7 +25,6 @@ function Register(): JSX.Element {
         body: JSON.stringify({ username,email, password }),
         credentials: "include",
       });
-      console.log(response);
 
       if (response.ok) {
         console.log("Registro exitoso, redirigiendo a inicio de sesión...");

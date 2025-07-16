@@ -9,7 +9,6 @@ function Login(): JSX.Element  {
 
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Iniciando sesión");
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",

@@ -11,7 +11,7 @@ export const authenticateToken = (req, res, next) => {
   }
 
   jwt.verify(token, jwtSecret, (error, user) => {
-    if (error) if (err) return res.sendStatus(403);
+    if (error) return res.sendStatus(403);
     req.user = user;
     next();
   });

@@ -33,7 +33,7 @@ export class UsersControllers {
       });
 
       res.cookie("token", token, { httpOnly: true, maxAge: 36000000 });
-      res.status(200).json({ message: "Logged in successfully" });
+      res.status(200).json({ token });
     } catch (error) {
       res.status(401).json({ error: error.message });
     }

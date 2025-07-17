@@ -10,21 +10,13 @@ function TaskList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      console.error("Undefined token. The user is not authenticated.");
-      navigate("/login");
-      return;
-    }
-
     const fetchTasks = async () => {
       try {
         const response = await fetch("http://localhost:3000/task", {
           method: "GET",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -52,13 +44,6 @@ function TaskList() {
   };
 
   const handleToggleTask = async (index) => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("Token not defined. Action cannot be completed.");
-      navigate("/login");
-      return;
-    }
-
     const taskToUpdate = displayLists[index];
     const updatedCompleted = !taskToUpdate.completed;
 
@@ -73,9 +58,9 @@ function TaskList() {
         `http://localhost:3000/task/${taskToUpdate.id}/completed`,
         {
           method: "PATCH",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ completed: updatedCompleted }),
         }
@@ -91,19 +76,10 @@ function TaskList() {
   };
 
   const handleDeleteTask = async (index, taskId) => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      console.error("Token not defined. Action cannot be completed.");
-      navigate("/login");
-      return;
-    }
-
     try {
       const response = await fetch(`http://localhost:3000/task/${taskId}`, {
         method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        credentials: "include",
       });
 
       if (response.ok) {

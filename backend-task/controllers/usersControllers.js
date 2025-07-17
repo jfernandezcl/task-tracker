@@ -41,10 +41,15 @@ export class UsersControllers {
         expiresIn: "1h",
       });
 
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: false, // ✅ Poner en true si usas HTTPS en producción
+        sameSite: "Lax",
+        maxAge: 24 * 60 * 60 * 1000, // 1 día
+      });
       console.log("JWT_SECRET:", jwtSecret);
 
-      res.cookie("token", token, { httpOnly: true, maxAge: 36000000 });
-      res.status(200).json({ token });
+      res.status(200).json({ message: "Login successful" });
     } catch (error) {
       console.error("Login error:", error);
       res.status(401).json({ error: error.message });

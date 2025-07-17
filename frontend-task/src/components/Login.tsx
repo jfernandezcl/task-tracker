@@ -20,8 +20,6 @@ function Login(): JSX.Element  {
       });
 
       if (response.ok) {
-        const { token } = await response.json();
-        localStorage.setItem("token", token);
         navigate("/");
       } else {
         console.error("Error in login response:", response.statusText);

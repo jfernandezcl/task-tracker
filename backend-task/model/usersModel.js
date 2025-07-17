@@ -33,10 +33,14 @@ export class UsersModel {
     return newUser[0];
   }
 
-  static async login({ username, password }) {
+  static async login({ email, password }) {
+    if (!email || !password) {
+      throw new Error("Email and password are required for login.");
+    }
+
     const [user] = await connection.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
+      "SELECT * FROM users WHERE email = ?",
+      [email]
     );
     if (user.length === 0) {
       throw new Error("Incorrect login or password");

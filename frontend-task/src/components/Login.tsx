@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login(): JSX.Element  {
   const navigate = useNavigate();
-  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = async (e: FormEvent) => {
@@ -15,7 +15,7 @@ function Login(): JSX.Element  {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
@@ -38,13 +38,13 @@ function Login(): JSX.Element  {
       </div>
       <form className="container-form">
         <h1 className="title-login">Login Here</h1>
-        <label className="title-label">Username</label>
+        <label className="title-label">Email</label>
         <input
           className="input-form"
           type="text"
-          placeholder="Enter your name"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <label className="title-label">Password</label>

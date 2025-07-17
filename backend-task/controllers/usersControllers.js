@@ -1,7 +1,10 @@
 import { usersValidations } from "../validationsRegister/usersValidations.js";
+import dotenv from "dotenv";
+dotenv.config();
 import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET;
+console.log("🔐 JWT_SECRET en controller:", jwtSecret);
 
 export class UsersControllers {
   constructor(usersModel) {
@@ -28,13 +31,22 @@ export class UsersControllers {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
-      const token = jwt.sign({ id: authenticatedUser.id }, jwtSecret, {
+      console.log("🧑 Usuario autenticado:", authenticatedUser);
+      console.log("🆔 ID del usuario:", authenticatedUser.id);
+
+      const userId = authenticatedUser.id.toString("hex");
+      console.log("🆔 ID como hex string:", userId);
+
+      const token = jwt.sign({ id: userId }, jwtSecret, {
         expiresIn: "1h",
       });
+
+      console.log("JWT_SECRET:", jwtSecret);
 
       res.cookie("token", token, { httpOnly: true, maxAge: 36000000 });
       res.status(200).json({ token });
     } catch (error) {
+      console.error("Login error:", error);
       res.status(401).json({ error: error.message });
     }
   }

@@ -4,7 +4,6 @@ dotenv.config();
 import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET;
-console.log("🔐 JWT_SECRET en controller:", jwtSecret);
 
 export class UsersControllers {
   constructor(usersModel) {
@@ -31,9 +30,6 @@ export class UsersControllers {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
-      console.log("🧑 Usuario autenticado:", authenticatedUser);
-      console.log("🆔 ID del usuario:", authenticatedUser.id);
-
       const userId = authenticatedUser.id.toString("hex");
       console.log("🆔 ID como hex string:", userId);
 
@@ -43,11 +39,10 @@ export class UsersControllers {
 
       res.cookie("token", token, {
         httpOnly: true,
-        secure: false, // ✅ Poner en true si usas HTTPS en producción
+        secure: false,
         sameSite: "Lax",
-        maxAge: 24 * 60 * 60 * 1000, // 1 día
+        maxAge: 24 * 60 * 60 * 1000,
       });
-      console.log("JWT_SECRET:", jwtSecret);
 
       res.status(200).json({ message: "Login successful" });
     } catch (error) {

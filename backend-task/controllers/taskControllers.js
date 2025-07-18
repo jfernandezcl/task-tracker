@@ -5,14 +5,9 @@ export class TaskControllers {
 
   getAll = async (req, res) => {
     try {
-      console.log("📥 Petición recibida en getAll");
-      console.log("🧑 Usuario autenticado:", req.user);
-
       const tasks = await this.taskModel.getAll();
-      console.log("✅ Tareas obtenidas:", tasks);
       res.json(tasks);
     } catch (error) {
-      console.error("❌ Error en getAll:", error); // Esto es importante
       res.status(500).json({ message: "Internal server error" });
     }
   };

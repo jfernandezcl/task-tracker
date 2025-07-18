@@ -47,7 +47,6 @@ export class UsersModel {
     }
 
     const isMatch = await bcrypt.compare(password, user[0].password);
-    console.log("¿Contraseña correcta?:", isMatch);
     if (!isMatch) {
       throw new Error("Incorrect login or password");
     }

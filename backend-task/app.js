@@ -14,7 +14,6 @@ export const createApp = ({ taskModel }, usersModel) => {
   app.use(cookieParser());
   app.use(express.json());
   app.use((req, res, next) => {
-    console.log("Middleware JSON activado. Body recibido:", req.body);
     next();
   });
   app.disable("x-powered-by");

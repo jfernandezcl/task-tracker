@@ -4,7 +4,7 @@ import { UsersModel } from "./model/usersModel.js";
 
 const taskModel = new TaskModel();
 
-const app = createApp({ taskModel: new TaskModel() }, UsersModel);
+const app = createApp({ taskModel: TaskModel }, UsersModel);
 
 const desiredPort = process.env.PORT ?? 3000;
 

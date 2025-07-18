@@ -3,7 +3,7 @@ import connection from "../dataBase/dataBase.js";
 export class TaskModel {
   static async getAll() {
     const [tasks] = await connection.query(
-      "SELECT id, text, completed FROM task"
+      "SELECT id, text, completed FROM tasks"
     );
     return tasks;
   }
@@ -11,19 +11,19 @@ export class TaskModel {
   static async create({ input }) {
     const { text } = input;
     const [result] = await connection.query(
-      "INSERT INTO task (text) VALUES (?)",
+      "INSERT INTO tasks (text) VALUES (?)",
       [text]
     );
 
     const [newTask] = await connection.query(
-      "SELECT id, text FROM task WHERE id = ?;",
+      "SELECT id, text FROM tasks WHERE id = ?;",
       [result.insertId]
     );
     return newTask[0];
   }
 
   static async delete({ id }) {
-    const [result] = await connection.query("DELETE FROM task WHERE id = ?", [
+    const [result] = await connection.query("DELETE FROM tasks WHERE id = ?", [
       id,
     ]);
     return result;
@@ -31,7 +31,7 @@ export class TaskModel {
 
   static async updateTaskCompleted(id, completed) {
     try {
-      const query = "UPDATE task SET completed = ? WHERE id = ?";
+      const query = "UPDATE tasks SET completed = ? WHERE id = ?";
       const [result] = await connection.query(query, [completed, id]);
       return result;
     } catch (error) {

@@ -12,7 +12,6 @@ function Register(): JSX.Element {
     e.preventDefault();
 
     if (!username || !email || !password) {
-      console.error("Username y password son requeridos");
       return;
     }
 

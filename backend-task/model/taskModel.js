@@ -3,16 +3,18 @@ import connection from "../dataBase/dataBase.js";
 export class TaskModel {
   static async getAll() {
     const [tasks] = await connection.query(
-      "SELECT id, text, completed FROM tasks"
+      "SELECT BIN_TO_UUID(id) AS id, text, completed FROM tasks"
     );
     return tasks;
   }
 
   static async create({ input }) {
-    const { text } = input;
+    const { text, userId } = input;
+    console.log("Insertando tarea en DB:", { text, userId });
+
     const [result] = await connection.query(
-      "INSERT INTO tasks (text) VALUES (?)",
-      [text]
+      "INSERT INTO tasks (text, user_id) VALUES (?, UUID_TO_BIN(?))",
+      [text, userId]
     );
 
     const [newTask] = await connection.query(

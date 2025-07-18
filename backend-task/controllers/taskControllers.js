@@ -18,11 +18,18 @@ export class TaskControllers {
         return res.status(400).json({ message: "Task text is required" });
       }
 
+      console.log("Creando tarea para usuario:", req.user.id);
+      console.log("Texto recibido:", req.body.text);
+
       const newTask = await this.taskModel.create({
-        input: { text: req.body.text },
+        input: {
+          text: req.body.text,
+          userId: req.user.id,
+        },
       });
       res.status(201).json(newTask);
     } catch (error) {
+      console.error("❌ Error en TaskController.create:", error);
       res.status(500).json({ message: "Error creating task" });
     }
   };

@@ -21,6 +21,7 @@ function TaskForm({ onAddTask }) {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({ text: newTask.text }),
         });
 

@@ -18,22 +18,23 @@ export class TaskModel {
     );
 
     const [newTask] = await connection.query(
-      "SELECT id, text FROM tasks WHERE id = ?;",
+      "SELECT BIN_TO_UUID(id) AS id, text, completed FROM tasks WHERE id = ?;",
       [result.insertId]
     );
     return newTask[0];
   }
 
   static async delete({ id }) {
-    const [result] = await connection.query("DELETE FROM tasks WHERE id = ?", [
-      id,
-    ]);
+    const [result] = await connection.query(
+      "DELETE FROM tasks WHERE id = UUID_TO_BIN(?)",
+      [id]
+    );
     return result;
   }
 
   static async updateTaskCompleted(id, completed) {
     try {
-      const query = "UPDATE tasks SET completed = ? WHERE id = ?";
+      const query = "UPDATE tasks SET completed = ? WHERE id = UUID_TO_BIN(?)";
       const [result] = await connection.query(query, [completed, id]);
       return result;
     } catch (error) {

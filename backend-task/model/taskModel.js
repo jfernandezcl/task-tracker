@@ -1,9 +1,10 @@
 import connection from "../dataBase/dataBase.js";
 
 export class TaskModel {
-  static async getAll() {
+  static async getAll(userId) {
     const [tasks] = await connection.query(
-      "SELECT BIN_TO_UUID(id) AS id, text, completed FROM tasks"
+      "SELECT BIN_TO_UUID(id) AS id, text, completed FROM tasks WHERE user_id = UUID_TO_BIN(?)",
+      [userId]
     );
     return tasks;
   }
@@ -18,7 +19,7 @@ export class TaskModel {
     );
 
     const [newTask] = await connection.query(
-      "SELECT BIN_TO_UUID(id) AS id, text, completed FROM tasks WHERE id = ?;",
+      "SELECT BIN_TO_UUID(id) AS id, text, completed, BIN_TO_UUID(user_id) AS userId FROM tasks WHERE id = ?;",
       [result.insertId]
     );
     return newTask[0];

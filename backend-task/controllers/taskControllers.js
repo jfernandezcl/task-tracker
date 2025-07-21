@@ -5,7 +5,8 @@ export class TaskControllers {
 
   getAll = async (req, res) => {
     try {
-      const tasks = await this.taskModel.getAll();
+      const userId = req.user.id;
+      const tasks = await this.taskModel.getAll(userId);
       res.json(tasks);
     } catch (error) {
       res.status(500).json({ message: "Internal server error" });

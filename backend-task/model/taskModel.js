@@ -11,7 +11,6 @@ export class TaskModel {
 
   static async create({ input }) {
     const { text, userId } = input;
-    console.log("Insertando tarea en DB:", { text, userId });
 
     const [result] = await connection.query(
       "INSERT INTO tasks (text, user_id) VALUES (?, UUID_TO_BIN(?))",

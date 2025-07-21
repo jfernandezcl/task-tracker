@@ -31,7 +31,6 @@ export class UsersControllers {
       }
 
       const userId = authenticatedUser.id.toString("hex");
-      console.log("🆔 ID como hex string:", userId);
 
       const token = jwt.sign({ id: userId }, jwtSecret, {
         expiresIn: "1h",

@@ -19,9 +19,6 @@ export class TaskControllers {
         return res.status(400).json({ message: "Task text is required" });
       }
 
-      console.log("Creando tarea para usuario:", req.user.id);
-      console.log("Texto recibido:", req.body.text);
-
       const newTask = await this.taskModel.create({
         input: {
           text: req.body.text,

@@ -1,4 +1,5 @@
 import connection from "../dataBase/dataBase.js";
+import crypto from "crypto";
 
 export class TaskModel {
   static async getAll(userId) {
@@ -11,15 +12,16 @@ export class TaskModel {
 
   static async create({ input }) {
     const { text, userId } = input;
+    const taskId = crypto.randomUUID();
 
     const [result] = await connection.query(
-      "INSERT INTO tasks (text, user_id) VALUES (?, UUID_TO_BIN(?))",
-      [text, userId]
+      "INSERT INTO tasks (id, text, user_id) VALUES (UUID_TO_BIN(?), ?, UUID_TO_BIN(?))",
+      [taskId, text, userId]
     );
 
     const [newTask] = await connection.query(
-      "SELECT BIN_TO_UUID(id) AS id, text, completed, BIN_TO_UUID(user_id) AS userId FROM tasks WHERE id = ?;",
-      [result.insertId]
+      "SELECT BIN_TO_UUID(id) AS id, text, completed, BIN_TO_UUID(user_id) AS userId FROM tasks WHERE id = UUID_TO_BIN(?)",
+      [taskId]
     );
     return newTask[0];
   }

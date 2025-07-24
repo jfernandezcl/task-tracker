@@ -18,6 +18,8 @@ const ProtectedRouter = ({ children }: { children: JSX.Element }) => {
           setIsValid(false);
           throw new Error("Token verification failed");
         }
+
+         setIsValid(true);
       } catch {
         Cookies.remove("token");
         Cookies.remove("user");
@@ -27,8 +29,9 @@ const ProtectedRouter = ({ children }: { children: JSX.Element }) => {
     verify();
   },[]);
 
-  if (isValid === false) return <p>Loading...</p>
-  if (!isValid) return <Navigate to="/login" replace />;
+
+  if (isValid === null) return <p>Loading...</p>
+  if (isValid === false) return <Navigate to="/login" replace />;
   return children;
 }
 

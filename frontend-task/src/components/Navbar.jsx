@@ -23,13 +23,17 @@ function Navbar() {
   };
 
   return (
-    <>
-      <div className="container-navbar">
+    <header className="container-navbar">
+      <div className="navbar-left">
         <button className="button-logout" onClick={handleLogout}>
           Log out
         </button>
       </div>
-    </>
+      <h1 className="navbar-title">TASK TRACKER</h1>
+      <div className="navbar-right">
+        <span className="navbar-icon">🌙</span>
+      </div>
+    </header>
   );
 }
 

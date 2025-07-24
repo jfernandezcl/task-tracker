@@ -1,12 +1,25 @@
 import "../styles/Navbar.css";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function Navbar() {
   const navigate = useNavigate();
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    navigate("/login");
+
+    try {
+      await fetch("http://localhost:3000/users/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      Cookies.remove("token");
+      Cookies.remove("user");
+
+      navigate("/login");
+    } catch {
+      throw new Error("Logout failed. Please try again later.");
+    }
   };
 
   return (

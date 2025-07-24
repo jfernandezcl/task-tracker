@@ -8,15 +8,9 @@ const ProtectedRouter = ({ children }: { children: JSX.Element }) => {
 
   useEffect(() => {
     const verify = async () => {
-      const token = Cookies.get("token");
-      if (!token) {
-        setIsValid(false);
-        return;
-      }
 
       try{
         const response = await fetch("http://localhost:3000/api/auth/verify", {
-          headers: { Authorization : `Bearer ${token}` },
            credentials: "include",
         });
 

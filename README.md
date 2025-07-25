@@ -24,4 +24,4 @@ A simple task tracker application that allows users to add new tasks, mark them 
 
 ---
 
-![App Preview](./assets/login)
+![Task Tracker Screenshot](./assets/login)

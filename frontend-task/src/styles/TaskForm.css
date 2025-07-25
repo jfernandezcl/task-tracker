@@ -1,47 +1,68 @@
+.main-content {
+  padding: 4rem 1rem 2rem;
+  background-color: #f0f0f5;
+  
+}
 
-.form {
+
+.taskform-container {
+  background-color: #f0f0f5;
+  padding: 1rem;
+}
+
+.taskform-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4c4c6d;
+}
+
+.taskform-form {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 8rem 12rem 0 12rem;
 }
 
-.form-label {
+.taskform-input-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: left;
-  color: black;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.container-input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+
   position: relative;
-  margin-bottom: 12px;
-}
-.form-input {
-  border: none;
-  color: #303030;
-  border: 2px solid black;
-  border-radius: 12px;
-  width: 400px;
-  height: 40px;
-  text-align: left;
-  padding-left: 12px;
 }
 
-.button-save {
-  background-color: black;
-  border-radius: 12px;
+.taskform-input {
+  flex: 1;
   border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  color: #333;
+
+  padding: 0.8rem 3rem 0.8rem 1rem;
+}
+
+.taskform-button {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  margin-left: 4px;
 }
 
-.img-save{
- width: 24px;
+.taskform-button-icon {
+  height: 20px;
+  width: 20px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+.taskform-button:hover .taskform-button-icon {
+  opacity: 1;
 }

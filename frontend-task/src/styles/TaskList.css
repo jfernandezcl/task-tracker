@@ -1,3 +1,18 @@
-.task-list {
-  padding: 0 18rem;
+.tasklist-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+
+.tasklist {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.tasklist-error {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
 }

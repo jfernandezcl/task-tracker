@@ -1,49 +1,40 @@
-.container-task {
-  list-style: none;
+.taskitem {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
-  word-break: break-word;
-  max-width: 420px;
-  margin-top: 12px;
-  color: black;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(83, 82, 82, 0.4);
-}
-.container-task:last-child{
-  border-bottom: none;
+  background-color: white;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s ease;
 }
 
-.container-checkbox {
-  display: flex;
-  justify-content: left;
-  align-items: center;
+.taskitem-checkbox input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.container-text {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-start;
-  text-align: left;
-  align-items: center;
-  margin-left: 8px;
-}
-.task-marking {
-  margin-right: 12px;
+.taskitem-text {
+  flex: 1;
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
 }
 
-.container-button {
-  display: flex;
-  justify-content: right;
-  align-items: center;
+.taskitem-completed {
+  text-decoration: line-through;
+  color: #aaa;
 }
-.button-delete {
+
+.taskitem-delete-button {
+  background: none;
   border: none;
   cursor: pointer;
-  background-color: transparent
 }
-.img-delete {
+
+.taskitem-delete-icon {
   width: 20px;
-  padding-left: 12px;
+  height: 20px;
 }

@@ -95,10 +95,10 @@ function TaskList() {
   };
 
   return (
-    <>
+    <div className="tasklist-container">
       <TaskForm onAddTask={addTask} />
-      {error && <p className="error-message">{error}</p>}
-      <ul className="task-list">
+      {error && <p className="tasklist-error">{error}</p>}
+      <ul className="tasklist">
         {displayLists.map((task, index) => (
           <TaskItem
             key={task.id || index}
@@ -108,7 +108,7 @@ function TaskList() {
           />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

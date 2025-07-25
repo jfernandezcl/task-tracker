@@ -1,8 +1,12 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  background-color: white;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.main-title {
-  color: black;
+
+body {
+  background-color: #f0f0f5; /* Gris lavanda suave como en la imagen */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
 }

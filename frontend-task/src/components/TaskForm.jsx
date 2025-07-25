@@ -40,27 +40,26 @@ function TaskForm({ onAddTask }) {
 
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
-
-      <div className="form">
-        <h1 className="form-label">Task Tracker</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="container-input">
-            <input
-              className="form-input"
-              type="text"
-              value={addForm}
-              onChange={handleInputChange}
-              placeholder="Writing the task"
-            />
-            <button className="button-save" type="submit">
-              <img className="img-save" src={icon} alt="icono enter" />
-            </button>
-          </div>
-        </form>
-      </div>
+      <Navbar />
+      <main className="main-content">
+        <div className="taskform-container">
+          <h1 className="taskform-title">Add a new task</h1>
+          <form className="taskform-form" onSubmit={handleSubmit}>
+            <div className="taskform-input-wrapper">
+              <input
+                className="taskform-input"
+                type="text"
+                value={addForm}
+                onChange={handleInputChange}
+                placeholder="Write the task"
+              />
+              <button className="taskform-button" type="submit">
+                <img className="taskform-button-icon" src={icon} alt="enter" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
     </>
   );
 }

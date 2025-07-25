@@ -23,3 +23,5 @@ A simple task tracker application that allows users to add new tasks, mark them 
 - TypeScript
 
 ---
+
+![App Preview](./assets/login)

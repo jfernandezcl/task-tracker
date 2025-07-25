@@ -24,4 +24,4 @@ A simple task tracker application that allows users to add new tasks, mark them 
 
 ---
 
-![Task Tracker Screenshot](./assets/login)
+<img src="./frontend-task/src/assets/login.png" alt="Task Tracker Preview" width="100%" />
